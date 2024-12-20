@@ -9,15 +9,17 @@ import {
 
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
+
 const firebaseConfig = {
-  apiKey: "AIzaSyA2t0fE0Av-xHVB61f3xyvgsb9f2U1C370",
-  authDomain: "crown-clothing-dea4f.firebaseapp.com",
-  projectId: "crown-clothing-dea4f",
-  storageBucket: "crown-clothing-dea4f.firebasestorage.app",
-  messagingSenderId: "541830724132",
-  appId: "1:541830724132:web:cea9b17eef69a2ba7476b1",
-  measurementId: "G-ZBZ2YV3BPK"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
+  measurementId: import.meta.env.VITE_MEASUREMENT_ID,
 };
+
 
 
 const firebaseApp = initializeApp(firebaseConfig);
