@@ -20,7 +20,6 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-  // console.log(formFields);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -28,9 +27,8 @@ const SignInForm = () => {
 
   const signInWithGoogle = async () => {
     try {
-      const { user } = await signInWithGooglePopup();
-      const userDocRef = await createUserDocumentFromAuth(user);
-      console.log(userDocRef);
+      await signInWithGooglePopup();
+      // createUserDocumentFromAuth(user);
     } catch (error) {
       console.error(error);
     }
@@ -40,19 +38,22 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
-      console.log(response);
+
+      // console.log(user);
       resetFormFields();
+      // setCurrentUser(user);
     } catch (error) {
-      if (error.code === "auth/wrong-password") {
+      if (error.code === "auth/invalid-credential") {
         toast.error("Incorrect password");
       } else if (error.code === "auth/user-not-found") {
         toast.error("No user associated with this email");
-      }else{
-        console.log(error);
+      } else {
+        toast.error("Error signing in");
+        // console.log(error);
       }
     }
   };

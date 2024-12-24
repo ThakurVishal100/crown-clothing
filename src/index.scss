@@ -1,6 +1,8 @@
 body {
   margin: 0;
-  font-family: "Open sans condensed", sans-serif;
+  padding: 20px 40px;
+  // font-family: "Open sans condensed", sans-serif;
+  font-family: "Pacifico";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -8,6 +10,12 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.bigelow-rules-regular {
+  font-family: "Bigelow Rules", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 

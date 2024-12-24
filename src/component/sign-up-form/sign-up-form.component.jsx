@@ -39,6 +39,8 @@ const SignUpForm = () => {
         password
       );
 
+      
+
       await createUserDocumentFromAuth(user, { displayName });
 
       toast.success("User created successfully");
