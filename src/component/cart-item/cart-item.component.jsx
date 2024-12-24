@@ -1,0 +1,13 @@
+import "./cart-item.styles.scss";
+
+export const CartItem = ({ cartItem }) => {
+  const { name, quantity, imageUrl, price } = cartItem;
+  return (
+    <div>
+      <h2>{name}</h2>
+      <span>{quantity}</span>
+    </div>
+  );
+};
+
+export default CartItem;
