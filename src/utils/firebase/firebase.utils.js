@@ -70,6 +70,7 @@ export const getCategoriesAndDocuments = async () => {
   
   const querySnapshot = await getDocs(q);
   const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+  console.log("Fetching categories from Firestore...");
     const { title, items } = docSnapshot.data();
     acc[title.toLowerCase()] = items;
     return acc;

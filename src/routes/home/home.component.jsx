@@ -1,4 +1,5 @@
 import React from "react";
+import "./home.styles.scss";
 // import Categories from "./component/categories/categories.components";
 import Categories from "../../component/categories/categories.components";
 import { Outlet } from "react-router-dom";

@@ -2,7 +2,7 @@ import { useContext , Fragment} from "react";
 import { CategoriesContext } from "../../contexts/categories.context";
 import ProductCard from "../../component/product-card/product-card.component";
 import CategoryPreview from "../../component/category-preview/category-preview.component"; 
-import "./categories-preview.styles.scss";
+// import "./categories-preview.styles.scss";
 
 const CategoriesPreview = () => {
   const { categoriesMap } = useContext(CategoriesContext);
