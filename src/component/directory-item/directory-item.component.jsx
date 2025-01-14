@@ -17,8 +17,9 @@ const DirectoryItem = ({ category }) => {
       <div className="body">
         <h2>{title}</h2>
         <p>Shop Now</p>
-      </div>
+      </div>  
     </div>
   );
 };
 export default DirectoryItem;
+
