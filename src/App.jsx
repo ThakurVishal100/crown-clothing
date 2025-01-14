@@ -7,11 +7,35 @@ import Authentication from "./routes/authentication/authentication.component";
 import { Toaster } from "react-hot-toast";
 import Shop from "./routes/shop/shop.component";
 import Checkout from "./routes/checkout/checkout.component";
+import { createContext, useEffect, useReducer } from 'react';
+
+import { createAction } from '../src/utils/reducer/reducer.utils';
+
+import {
+  onAuthStateChangedListener,
+  createUserDocumentFromAuth,
+} from './utils/firebase/firebase.utils';
+import { setCurrentUser } from "./store/user/user.action";
+import { useDispatch } from "react-redux";
 // const notify = () => toast('Here is your toast.');
 
 
 
 const App = () => {
+
+  const dispatch = useDispatch();
+
+   useEffect(() => {
+      const unsubscribe = onAuthStateChangedListener((user) => {
+        if (user) {
+          createUserDocumentFromAuth(user);
+        }
+        dispatch(setCurrentUser(user));
+      });
+  
+      return unsubscribe;
+    }, [dispatch]);
+
   return (
     <div>
       <Toaster />
