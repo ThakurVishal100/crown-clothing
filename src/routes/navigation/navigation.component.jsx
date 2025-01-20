@@ -6,7 +6,7 @@ import "./navigation.styles.scss";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
 
-import { UserContext } from "../../contexts/user.context";
+// import { UserContext } from "../../contexts/user.context";
 import { CartContext } from "../../contexts/cart.context";
 import CartIcon from "../../component/cart-icon/cart-icon.component";
 import { signOutUser } from "../../utils/firebase/firebase.utils";

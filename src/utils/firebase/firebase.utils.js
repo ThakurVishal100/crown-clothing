@@ -69,13 +69,11 @@ export const getCategoriesAndDocuments = async () => {
   const q = query(collectionRef);
   
   const querySnapshot = await getDocs(q);
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-  console.log("Fetching categories from Firestore...");
-    const { title, items } = docSnapshot.data();
-    acc[title.toLowerCase()] = items;
-    return acc;
-  }, {});
-  return categoryMap;
+  return querySnapshot.docs.map((docSnapshot)=> docSnapshot.data());
+  
+ 
+  // return categoryMap;
+
 };
 
 export const createUserDocumentFromAuth = async (userAuth, additionalInfo) => {
@@ -87,21 +85,21 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInfo) => {
   const userSnapshot = await getDoc(userDocRef);
   // console.log(userSnapshot);
   // console.log(userSnapshot.exists());
-
+  
   if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
-    const createdAt = new Date();
+    const createdAt = new Date();  
     try {
-      await setDoc(userDocRef, {
+      await setDoc(userDocRef, {   
         displayName,
         email,
         createdAt,
         ...additionalInfo,
       });
       toast.success("User created successfully");
-    } catch (err) {
+    } catch (err) {  
       toast.error("Error creating the user");
-      console.log("error creating the user", err.message);
+      console.log("error creating the user", err.message);        
     }
   }
 
